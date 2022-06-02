@@ -1,6 +1,6 @@
 <template>
 	<view>
-		
+		shangp xiangq
 	</view>
 </template>
 

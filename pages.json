@@ -51,6 +51,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "searchData/searchData",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],

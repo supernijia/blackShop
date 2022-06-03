@@ -65,6 +65,10 @@
 				//数据请求完毕，立即按需调用callback回调函数
 				callback && callback()
 				if(res.meta.status !== 200) return uni.$showMsg();
+				if(res.message.goods.length === 0) {
+					uni.$showMsg('暂无商品数据')
+					return
+				}
 				this.goodslist = [...this.goodslist,...res.message.goods]
 				this.total = res.message.total
 			},

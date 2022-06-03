@@ -28,41 +28,35 @@
 		}
 
 	}],
-	"subPackages": [
-		{
-			"root": "subpkg",
-			"pages": [
-				
+	"subPackages": [{
+		"root": "subpkg",
+		"pages": [
+
 			{
-                    "path" : "goods_detail/goods_detail",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "goods_list/goods_list",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "searchData/searchData",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
-		}
-	],
+				"path": "goods_detail/goods_detail",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "goods_list/goods_list",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": true,
+					"onReachBottomDistance": 150
+				}
+
+			}, {
+				"path": "searchData/searchData",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}
+		]
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "blackShop",

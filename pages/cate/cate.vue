@@ -17,7 +17,8 @@
 					<!-- 当前二级分类下的三级分类列表 -->
 					<view class="cate-lv3-list">
 						<!-- 三级分类的Item项 -->
-						<view class="cate-lv3-item" v-for="(item3, i3) in item2.children" :key="i3" @click="gotoGoodsList(item3)">
+						<view class="cate-lv3-item" v-for="(item3, i3) in item2.children" :key="i3"
+							@click="gotoGoodsList(item3)">
 							<!-- 三级分类的图片 -->
 							<image :src="item3.img_src"></image>
 							<!-- 三级分类的文本 -->
@@ -31,7 +32,11 @@
 </template>
 
 <script>
+	//导入自己封装的minin模块
+	import badgeMix from '@/mixins/tabbar-badge.js'
 	export default {
+		// 将 badgeMix 混入到当前的页面中进行使用
+		mixins: [badgeMix],
 		data() {
 			return {
 				he: 0,
@@ -39,7 +44,7 @@
 				active: 0,
 				//二级分类列表
 				cateLevel2: [],
-				screenTop:0
+				screenTop: 0
 			};
 		},
 		onLoad() {
@@ -87,13 +92,13 @@
 			//跳转详情列表页
 			gotoGoodsList(item) {
 				uni.navigateTo({
-					url:'/subpkg/goods_list/goods_list?cid=' + item.cat_id
+					url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
 				})
 			},
 			//
 			gotoSearch() {
 				uni.navigateTo({
-					url:'/subpkg/searchData/searchData'
+					url: '/subpkg/searchData/searchData'
 				})
 			}
 		}

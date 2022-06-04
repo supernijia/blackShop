@@ -131,7 +131,14 @@
 			},
 			_onBlur(event) {
 				this.$emit('blur', event)
-				let value = event.detail.value;
+				// let value = event.detail.value;
+				//将用户输入的内容转化为整数
+				let value = parseInt(event.detail.value)
+				if(!value) {
+					//转化后为NAN,则给定默认值1
+					this.inputValue = 1;
+					return
+				}
 				if (isNaN(value)) {
 					this.inputValue = this.min;
 					return;

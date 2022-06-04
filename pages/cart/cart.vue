@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- 收货地址组件 -->
-		<!-- <my-address></my-address> -->
+		<my-address></my-address>
 
 		<!-- 商品列表的标题区域 -->
 		<view class="cart-title">

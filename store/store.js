@@ -3,7 +3,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 //导入购物车的Vuex模块
 import moduleCart from './cart.js'
-// console.log(moduleCart);
+//导入用户信息的Vuex模块
+import moduleUser from './user.js'
 
 //将vuex安装为vue插件
 Vue.use(Vuex)
@@ -13,6 +14,7 @@ const store = new Vuex.Store({
 	//挂载store模块
 	modules: {
 		m_cart:moduleCart,
+		m_user:moduleUser
 	}
 })
 

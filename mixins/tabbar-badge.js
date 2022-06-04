@@ -20,4 +20,8 @@ export default {
 			})
 		},
 	},
+	//购物车删除商品时更新购物车内商品数量
+	updated() {
+		this.setBadge()
+	}
 }

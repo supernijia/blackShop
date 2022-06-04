@@ -13,10 +13,23 @@
 
 		<!-- 循环渲染购物车中的商品信息 -->
 		<uni-swipe-action>
-			<block v-for="(goods, i) in cart" :key="i">
+			<!-- <block v-for="(goods, i) in cart" :key="i">
 				<uni-swipe-action-item :right-options="options" @click="swipeItemClickHandler(goods)">
 					<my-goods :goods="goods" :show-radio="true" :show-num="true" @radio-change="radioChangeHandler"
 						@num-change="numberChangeHandler"></my-goods>
+				</uni-swipe-action-item>
+			</block> -->
+			<block v-for="(goods, i) in cart" :key="i">
+				<uni-swipe-action-item>
+					<view class="content-box">
+						<my-goods :goods="goods" :show-radio="true" :show-num="true" @radio-change="radioChangeHandler"
+							@num-change="numberChangeHandler"></my-goods>
+					</view>
+					<!--使用右插槽-->
+					<template v-slot:right>
+						<view class="slot-button" @click="swipeItemClickHandler(goods)"><text
+								class="slot-button-text">删除</text></view>
+					</template>
 				</uni-swipe-action-item>
 			</block>
 		</uni-swipe-action>
@@ -35,7 +48,7 @@
 		name: 'cart',
 		mixins: [badgeMix],
 		computed: {
-			...mapState('m_cart', ['cart'])
+			...mapState('m_cart', ['cart']),
 		},
 		data() {
 			return {
@@ -45,8 +58,11 @@
 						backgroundColor: '#C00000'
 					}
 				}],
-				timer:null
+				timer: null
 			};
+		},
+		onLoad() {
+			
 		},
 		methods: {
 			...mapMutations('m_cart', ['updateGoodsState', 'updateGoodsCount', 'removeGoodsById']),
@@ -57,14 +73,15 @@
 				this.updateGoodsCount(e)
 			},
 			swipeItemClickHandler(goods) {
+				//删除商品使用防抖
 				clearTimeout(this.timer)
-				
+
 				this.timer = setTimeout(() => {
 					this.removeGoodsById(goods.goods_id)
 				},500)
-				
+
 			},
-		}
+		},
 	}
 </script>
 
@@ -80,5 +97,23 @@
 			font-size: 14px;
 			margin-left: 10px;
 		}
+	}
+
+	.slot-button {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		height: 100%;
+		/* #endif */
+		flex: 1;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 0 20px;
+		background-color: #ff5a5f;
+	}
+
+	.slot-button-text {
+		color: #ffffff;
+		font-size: 14px;
 	}
 </style>

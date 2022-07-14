@@ -12,6 +12,7 @@ $http.baseUrl = 'https://api-ugo-web.itheima.net'
 //请求拦截器
 $http.beforeRequest = function (options) {
   // do somethimg...
+  console.log(options);
   uni.showLoading({
 	  title : '数据加载中...'
   })
